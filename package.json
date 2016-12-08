@@ -2,8 +2,9 @@
   "name": "rain-check-travel",
   "version": "1.0.0",
   "description": "RESTful API for CMPSC 475",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,9 +13,11 @@
   ],
   "author": "Samuel Ricklin",
   "license": "ISC",
+  "repository":"https://github.com/smrckln/rain-check-travel.git",
   "dependencies": {
     "async": "^2.1.2",
     "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "sqlite3": "^3.1.8"
   }
 }
