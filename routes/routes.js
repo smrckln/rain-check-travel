@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../models/db.js');
+
+db.init();
 
 router.use(function(req, res, next) {
-    console.log("Request coming in");
+    console.log("" + req.method + " " + req.path + " " + req.ip);
     next();
 });
 
@@ -25,6 +28,17 @@ router.route('/users/:user_id')
 
     .put(function(req, res){
         //TODO: Update specific user using req.params.user_id
+    });
+
+router.route('/favorites/:user_id')
+
+    .get(function(req, res){
+        res.json(db.data.data[req.params.user_id]);
+    })
+
+    .put(function(req, res){
+        db.data.data[req.params.user_id] = req.body;
+        res.json({"message":"successful"});
     });
 
 module.exports = router;
