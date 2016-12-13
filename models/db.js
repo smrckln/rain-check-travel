@@ -1,6 +1,12 @@
 var sqlite = require('sqlite3').verbose();
 var db = new sqlite.Database('./rtt.db');
 
+var _data = {"data": [{
+            "name": "Pennsylvania State University",
+            "latitude": 40.8048496290786,
+            "longitude": -77.861618310732
+        }]};
+
 var db_module = {
     prepare: prepare_stmt,
     run: run_stmt,
@@ -8,11 +14,7 @@ var db_module = {
     data: _data
 };
 
-var _data = {"data": [{
-            "name": "Pennsylvania State University",
-            "latitude": 40.8048496290786,
-            "longitude": -77.861618310732
-        }]};
+
 
 function init_db() {
     db.run("CREATE TABLE if not exists users (id INTEGER NOT NULL PRIMARY KEY, username TEXT, password TEXT)");

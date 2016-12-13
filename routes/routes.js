@@ -33,11 +33,16 @@ router.route('/users/:user_id')
 router.route('/favorites/:user_id')
 
     .get(function(req, res){
-        res.json(db.data.data[req.params.user_id]);
+        res.json(db.data.data);
     })
 
     .put(function(req, res){
-        db.data.data[req.params.user_id] = req.body;
+        db.data.data[req.params.user_id-1] = req.body;
+        res.json({"message":"successful"});
+    })
+
+    .post(function(req, res){
+        db.data.data.push(req.body);
         res.json({"message":"successful"});
     });
 
