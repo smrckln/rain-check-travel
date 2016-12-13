@@ -46,4 +46,15 @@ router.route('/favorites/:user_id')
         res.json({"message":"successful"});
     });
 
+router.route('/login')
+
+    .post(function(req, res){
+        if (req.body.user == "user" && req.body.pass == "123") {
+            var ret = {"message":"successful", "favorites":db.data.data};
+            res.json(ret);
+        } else {
+            res.json({"message":"Incorrect username or password"});
+        }
+    });
+
 module.exports = router;
