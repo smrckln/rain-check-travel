@@ -37,6 +37,7 @@ router.route('/favorites/:user_id')
     })
 
     .put(function(req, res){
+        console.log(req.body)
         db.data.data[req.params.user_id-1] = req.body;
         res.json({"message":"successful"});
     })
