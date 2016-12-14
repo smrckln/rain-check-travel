@@ -49,8 +49,9 @@ router.route('/favorites/:user_id')
 router.route('/login')
 
     .post(function(req, res){
-        if (req.body.user == "user" && req.body.pass == "123") {
-            var ret = {"message":"successful", "favorites":db.data.data};
+        // I know this is terrible but I need a quick fix
+        if (req.body.user == "user" && req.body.pass == "pass") {
+            var ret = {"message":"successful", "favorites":db.data.data, "_id":1};
             res.json(ret);
         } else {
             res.json({"message":"Incorrect username or password"});
